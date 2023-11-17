@@ -20,12 +20,12 @@ jobs:
         run: |
            echo "release = ${FOD_RELEASE}"
            case ${FOD_RELEASE} in
-             ''|*[!0-9]*) echo '_RELEASE_OPT="--fod.release.name=${FOD_RELEASE}"' >> $GITHUB_ENV ;;
+             ''|*[!0-9]*) echo '_RELEASE_OPT="--fod.release.name=\"${FOD_RELEASE}\""' >> $GITHUB_ENV ;;
             *) echo '_RELEASE_OPT="--fod.release.id=${FOD_RELEASE}"' >> $GITHUB_ENV ;;
            esac
         env:
-          #FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
-          FOD_RELEASE: 12345
+          FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
+          #FOD_RELEASE: 12345
       - name: echo-release-opt
         shell: bash
         run: |
