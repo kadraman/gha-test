@@ -33,5 +33,5 @@ jobs:
           FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
       - uses: kadraman/gha-test/internal/run@main
         with:
-          cmd: 'echo FoDToGitHub "--fod.baseUrl=${FOD_URL}" "--fod.tenant=${FOD_TENANT}" "--fod.user=${FOD_USER}" "--fod.password=${FOD_PASSWORD}" "--fod.clientID=${FOD_CLIENT_ID}" "--fod.clientSecret=${FOD_CLIENT_SECRET}" \""${_RELEASE_OPT}\""'
+          cmd: 'echo FoDToGitHub "--fod.baseUrl=${FOD_URL}" "--fod.tenant=${FOD_TENANT}" "--fod.user=${FOD_USER}" "--fod.password=${FOD_PASSWORD}" "--fod.clientID=${FOD_CLIENT_ID}" "--fod.clientSecret=${FOD_CLIENT_SECRET}" """${_RELEASE_OPT}"""'
 
