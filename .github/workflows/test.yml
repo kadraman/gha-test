@@ -31,9 +31,7 @@ jobs:
           echo ${_RELEASE_OPT}
         env:
           FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
-      - name: cmd-test
-        shell: bash
-        run: |
-          echo '"${VULN_EXPORTER_CMD}" FoDToGitHub "--fod.baseUrl=${FOD_URL}" "--fod.tenant=${FOD_TENANT}" "--fod.user=${FOD_USER}" "--fod.password=${FOD_PASSWORD}" "--fod.clientID=${FOD_CLIENT_ID}" "--fod.clientSecret=${FOD_CLIENT_SECRET}" "${_RELEASE_OPT}"'
+      - uses: kadraman/gha-test/internal/run@main
+        with:
+          cmd: 'echo FoDToGitHub "--fod.baseUrl=${FOD_URL}" "--fod.tenant=${FOD_TENANT}" "--fod.user=${FOD_USER}" "--fod.password=${FOD_PASSWORD}" "--fod.clientID=${FOD_CLIENT_ID}" "--fod.clientSecret=${FOD_CLIENT_SECRET}" "${_RELEASE_OPT}"'
 
-    
