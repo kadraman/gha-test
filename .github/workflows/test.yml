@@ -22,8 +22,8 @@ jobs:
              *) echo '_RELEASE_OPT="--fod.release.id=${FOD_RELEASE}"' >> $GITHUB_ENV ;;
            esac
         env:
-          #FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
-          FOD_RELEASE: 'IWA-Java [KAL]: main'
+          FOD_RELEASE: ${{ format('{0}:{1}', env.APP_NAME, env.RELEASE_NAME) }}
+          #FOD_RELEASE: 'IWA-Java [KAL]:main'
           #FOD_RELEASE: 12345
       - name: echo-release-opt
         shell: bash
